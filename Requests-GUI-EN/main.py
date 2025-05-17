@@ -1,6 +1,6 @@
-# 主程序入口
+# Main program entry
 import sys
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from gui.main_window import MainWindow
 
 if __name__ == "__main__":
