@@ -39,7 +39,7 @@ For developers or custom needs:
 - Python 3.8+  
 - Required packages:  
   ```bash  
-  pip install PyQt6 requests jsbeautifier  
+  pip install pyside6 requests jsbeautifier  
   ```  
 
 #### Steps  
@@ -216,7 +216,7 @@ This project is licensed under the [Apache License 2.0](https://github.com/add-q
 - Python 3.8 及以上  
 - 安装依赖：  
   ```bash  
-  pip install PyQt6 requests jsbeautifier  
+  pip install pyside6 requests jsbeautifier  
   ```  
 
 #### 步骤  
