@@ -77,7 +77,7 @@ pyinstaller -w -F -i assets/gui-cn.ico --add-data "assets/gui-cn.ico;assets" mai
 
 
 ## 🖥 Interface Overview  
-![Bilingual Interface](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-CN.png?raw=true)  
+![Bilingual Interface](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-EN.png?raw=true)  
 *(Switch between English and Chinese via the language selector in the top-right corner. All features are identical across languages.)*  
 
 
