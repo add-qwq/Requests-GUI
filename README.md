@@ -6,7 +6,7 @@
 ![Python version](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square)  
 ![License](https://img.shields.io/github/license/add-qwq/Requests-GUI?style=flat-square)  
 
-**Unofficial community-maintained** GUI client for the popular Python HTTP library [Requests](https://github.com/psf/requests). Convert complex command-line HTTP requests into an intuitive visual interface, supporting common methods like GET/POST/PUT/DELETE, and featuring bilingual (Chinese/English) versions.  
+**Unofficial community-maintained** GUI client for the popular Python HTTP library [Requests](https://github.com/psf/requests). Convert complex command-line HTTP requests into an intuitive visual interface, supporting common methods like GET/POST/PUT/DELETE, with built-in bilingual (Chinese/English) interface support.  
 
 
 ## 🌟 Key Features  
@@ -17,19 +17,16 @@
 - **Smart Headers**: Edit headers in a table (Key-Value pairs), auto-converted to Requests' `CaseInsensitiveDict`.  
 - **Response Visualization**: Displays status codes, formatted headers, and beautified response content (JSON/HTML auto-formatting via `jsbeautifier`).  
 - **Async Requests**: Uses PyQt's `QThread` to prevent UI freezing during network calls.  
-- **Bilingual Support**: Two separate code folders:  
-  - `Requests-GUI-EN`: English interface.  
-  - `Requests-GUI-CN`: Simplified Chinese interface.  
+- **Bilingual Interface**: Switch between Simplified Chinese and English directly in the UI (no separate folders required).  
 
 
-## 🚀 Quick Start
+## 🚀 Quick Start  
 
-### Option 1: Download Prebuilt EXE (Recommended)
-No Python or dependencies required:
-1. Go to [Releases page](https://github.com/add-qwq/Requests-GUI/releases).
-2. Download `Requests-GUI-EXE.zip` and extract it.
-3. After extraction, you will see: `Requests-GUI-EN.exe` (English) or `Requests-GUI-CN.exe` (Chinese).
-4. Select one version and double-click to run.
+### Option 1: Download Prebuilt EXE (Recommended)  
+No Python or dependencies required:  
+1. Go to the [Releases page](https://github.com/add-qwq/Requests-GUI/releases).  
+2. Download `Requests-GUI-EXE.zip` and extract it.  
+3. You’ll find two executables: `Requests-GUI-EN.exe` (English) and `Requests-GUI-CN.exe` (Chinese). Double-click your preferred version to run.  
 
 
 ### Option 2: Run from Source Code  
@@ -45,46 +42,43 @@ For developers or custom needs:
 #### Steps  
 1. Download the source code:  
    - Click `Code → Download ZIP` on the [GitHub repo](https://github.com/add-qwq/Requests-GUI) (no Git needed).  
-   - Extract the ZIP file.  
+   - Extract the ZIP file to your preferred location.  
 
-2. Run the program (choose Chinese or English version):
-   - **English version**:
-     ```bash
-     cd Requests-GUI/Requests-GUI-EN
-     python main.py
-     ```
-   - **Chinese version**:
-     ```bash
-     cd Requests-GUI/Requests-GUI-CN
-     python main.py
-     ```
-   - Of course, you can also directly double-click main.py to run.
+2. Run the program:  
+   ```bash  
+   cd Requests-GUI  # Navigate to the project root  
+   python main.py   # Launch the application (default language set in config)  
+   ```  
+   - To switch languages: Use the language selector in the UI (top-right corner).  
 
 
 ## 📦 Package into EXE (Custom Build)  
 Use `pyinstaller` to create a standalone EXE (install via `pip install pyinstaller` first).  
 
-### Example Command (Chinese Version):  
+### Example Command (Windows):  
 ```bash  
-# Navigate to the Chinese source folder  
-cd Requests-GUI/Requests-GUI-CN  
+# Navigate to the project root  
+cd Requests-GUI  
 
-# Package (Windows)  
-pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py  
+# Package for English version  
+pyinstaller -w -F -i assets/gui-en.ico --add-data "assets/gui-en.ico;assets" main.py  
+
+# Package for Chinese version  
+pyinstaller -w -F -i assets/gui-cn.ico --add-data "assets/gui-cn.ico;assets" main.py  
 
 # Parameters:  
 # -w: Hide console window (for GUI apps).  
 # -F: Generate a single EXE file.  
-# -i gui.ico: Set window icon.  
-# --add-data "gui.ico;.": Include the icon file in the EXE (Windows uses `;`).  
+# -i: Set window icon (specify English/Chinese icon).  
+# --add-data: Include language-specific assets.  
 ```  
 
-**Note for macOS/Linux**: Replace `;` with `:` in `--add-data` (e.g., `--add-data "gui.ico:."`).  
+**Note for macOS/Linux**: Replace `;` with `:` in `--add-data` (e.g., `--add-data "assets/gui-en.ico:assets"`).  
 
 
 ## 🖥 Interface Overview  
-![English Interface](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-EN.png?raw=true)  
-*(Click to view full-size. The Chinese version has identical functionality with translated labels.)*  
+![Bilingual Interface](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-CN.png?raw=true)  
+*(Switch between English and Chinese via the language selector in the top-right corner. All features are identical across languages.)*  
 
 
 ## 📘 Usage Examples  
@@ -96,7 +90,7 @@ pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py
 1. Select `GET` from the method dropdown.  
 2. Enter `https://httpbin.org/get` in the URL field.  
 3. Go to the **Query Parameters** tab and enter `name=John&age=30` (or JSON `{"name": "John", "age": 30}`).  
-4. (Optional) Add a header: `User-Agent: Requests-GUI-EN` in the Headers table.  
+4. (Optional) Add a header: `User-Agent: Requests-GUI` in the Headers table.  
 5. Click **Send Request**.  
 
 **Expected Response**:  
@@ -163,13 +157,13 @@ pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py
 
 
 ## 📜 License  
-This project is licensed under the [Apache License 2.0](https://github.com/add-qwq/Requests-GUI/blob/main/Requests-GUI-CN/LICENSE).  
+This project is licensed under the [Apache License 2.0](https://github.com/add-qwq/Requests-GUI/blob/main/LICENSE).  
 
 
 ## 🙋 Contributing & Feedback  
 - **Bug Reports/Feature Requests**: Submit an [Issue](https://github.com/add-qwq/Requests-GUI/issues).  
 - **Code Contributions**: Fork the repo, make changes, and submit a PR.  
-- **Localization**: Add new languages by translating the UI text in `main_window.py`.  
+- **Localization**: Add new languages by contributing translation files (stored in `locales/`).  
 
 
 ---
@@ -183,7 +177,7 @@ This project is licensed under the [Apache License 2.0](https://github.com/add-q
 ![Python version](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square)  
 ![License](https://img.shields.io/github/license/add-qwq/Requests-GUI?style=flat-square)  
 
-**非官方社区维护**的 Python HTTP 库 [Requests](https://github.com/psf/requests) 图形化客户端。将复杂的命令行 HTTP 请求转换为直观的可视化界面，支持 GET/POST/PUT/DELETE 等常用方法，并提供中英双语版本。  
+**非官方社区维护**的 Python HTTP 库 [Requests](https://github.com/psf/requests) 图形化客户端。将复杂的命令行 HTTP 请求转换为直观的可视化界面，支持 GET/POST/PUT/DELETE 等常用方法，并内置中英文双语界面。  
 
 
 ## 🌟 核心功能  
@@ -194,19 +188,16 @@ This project is licensed under the [Apache License 2.0](https://github.com/add-q
 - **智能请求头**：通过表格编辑请求头（键值对），自动转换为 Requests 的 `CaseInsensitiveDict`（键不区分大小写）。  
 - **响应可视化**：显示状态码、格式化响应头，并通过 `jsbeautifier` 自动美化 JSON/HTML 响应内容。  
 - **异步请求**：使用 PyQt 的 `QThread` 实现异步发送，避免界面卡顿。  
-- **双语支持**：两个独立代码文件夹：  
-  - `Requests-GUI-EN`：英文界面。  
-  - `Requests-GUI-CN`：简体中文界面。  
+- **双语界面**：直接在界面中切换简体中文与英文（无需分开文件夹）。  
 
 
 ## 🚀 快速开始  
 
 ### 方式 1：下载预打包 EXE（推荐）  
 无需安装 Python 或依赖：  
-1. 前往 [Releases 页面](https://github.com/add-qwq/Requests-GUI/releases)
-2. 下载 `Requests-GUI-EXE.zip` 并解压
-3. 解压后会看到： `Requests-GUI-EN.exe`（英文）或 `Requests-GUI-CN.exe`（中文）
-4. 选择一个版本，双击运行 
+1. 前往 [Releases 页面](https://github.com/add-qwq/Requests-GUI/releases)。  
+2. 下载 `Requests-GUI-EXE.zip` 并解压。  
+3. 解压后将看到两个可执行文件：`Requests-GUI-EN.exe`（英文）和 `Requests-GUI-CN.exe`（中文）。选择版本双击运行。  
 
 
 ### 方式 2：从源代码运行  
@@ -222,45 +213,43 @@ This project is licensed under the [Apache License 2.0](https://github.com/add-q
 #### 步骤  
 1. 下载源代码：  
    - 在 [GitHub 仓库](https://github.com/add-qwq/Requests-GUI) 点击 `Code → 下载 ZIP`（无需 Git）。  
-   - 解压 ZIP 文件。  
+   - 解压 ZIP 文件至目标位置。  
 
-2. 运行程序（选择中英文版本）：  
-   - **英文版本**：  
-     ```bash  
-     cd Requests-GUI/Requests-GUI-EN  
-     python main.py  
-     ```  
-   - **中文版本**：  
-     ```bash  
-     cd Requests-GUI/Requests-GUI-CN  
-     python main.py  
-     ```  
-   - 当然，也可以直接双击main.py运行
+2. 运行程序：  
+   ```bash  
+   cd Requests-GUI  # 进入项目根目录  
+   python main.py   # 启动程序（默认语言为配置语言）  
+   ```  
+   - 切换语言：通过界面右上角的语言选择器切换（简体中文/英文）。  
+
 
 ## 📦 打包为 EXE（自定义发布）  
 使用 `pyinstaller` 生成独立 EXE（先通过 `pip install pyinstaller` 安装）。  
 
-### 打包命令示例（中文版本）：  
+### 打包命令示例（Windows）：  
 ```bash  
-# 进入中文源代码目录  
-cd Requests-GUI/Requests-GUI-CN  
+# 进入项目根目录  
+cd Requests-GUI  
 
-# 打包（Windows）  
-pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py  
+# 打包英文版本  
+pyinstaller -w -F -i assets/gui-en.ico --add-data "assets/gui-en.ico;assets" main.py  
+
+# 打包中文版本  
+pyinstaller -w -F -i assets/gui-cn.ico --add-data "assets/gui-cn.ico;assets" main.py  
 
 # 参数说明：  
 # -w：隐藏控制台窗口（图形界面程序推荐）。  
 # -F：生成单个 EXE 文件（而非目录）。  
-# -i gui.ico：指定窗口图标。  
-# --add-data "gui.ico;."：将图标文件打包到 EXE 中（Windows 使用分号 `;`）。  
+# -i：指定窗口图标（区分中英文图标）。  
+# --add-data：包含语言相关资源文件。  
 ```  
 
-**macOS/Linux 注意**：`--add-data` 中路径分隔符改为冒号 `:`（如 `--add-data "gui.ico:."`）。  
+**macOS/Linux 注意**：`--add-data` 中路径分隔符改为冒号 `:`（如 `--add-data "assets/gui-en.ico:assets"`）。  
 
 
 ## 🖥 界面概览  
-![中文界面](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-CN.png?raw=true)  
-*(点击查看原图。英文版本功能与中文一致，仅界面文本为英文。)*  
+![双语界面](https://github.com/add-qwq/Requests-GUI/blob/main/GUI-CN.png?raw=true)  
+*(通过右上角语言选择器切换中英文，所有功能完全一致。)*  
 
 
 ## 📘 使用示例  
@@ -272,7 +261,7 @@ pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py
 1. 下拉菜单选择 `GET`。  
 2. 在 URL 输入框填写 `https://httpbin.org/get`。  
 3. 切换到「查询参数」选项卡，输入 `name=张三&age=20`（或 JSON `{"name": "张三", "age": 20}`）。  
-4. （可选）在请求头表格添加 `User-Agent: Requests-GUI-CN`。  
+4. （可选）在请求头表格添加 `User-Agent: Requests-GUI`。  
 5. 点击「发送请求」。  
 
 **预期响应**：  
@@ -339,10 +328,10 @@ pyinstaller -w -F -i gui.ico --add-data "gui.ico;." main.py
 
 
 ## 📜 许可证  
-本项目采用 [Apache 2.0 许可证](https://github.com/add-qwq/Requests-GUI/blob/main/Requests-GUI-CN/LICENSE)。  
+本项目采用 [Apache 2.0 许可证](https://github.com/add-qwq/Requests-GUI/blob/main/LICENSE)。  
 
 
 ## 🙋 贡献与反馈  
 - **问题反馈/功能建议**：提交 [Issue](https://github.com/add-qwq/Requests-GUI/issues)。  
 - **代码贡献**：Fork 仓库，修改后提交 PR。  
-- **多语言支持**：通过翻译 `main_window.py` 中的界面文本添加新语言。
+- **多语言支持**：通过贡献翻译文件（存储于 `locales/` 目录）添加新语言。
