@@ -1,16 +1,16 @@
 # 主窗口界面
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QComboBox, QLineEdit, QTextEdit, QPushButton,
     QTabWidget, QLabel, QTableWidget, QTableWidgetItem
 )
-from PyQt6.QtCore import QThread, pyqtSignal
-from PyQt6.QtGui import QIcon
+from PySide6.QtCore import QThread, Signal
+from PySide6.QtGui import QIcon
 import sys
 import os
 
 class RequestWorker(QThread):
-    finished = pyqtSignal(dict)
+    finished = Signal(dict)
 
     def __init__(self, method, url, headers, params, data):
         super().__init__()
@@ -48,7 +48,6 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 1000, 800)
 
         self.set_window_icon()
-        
         self.init_ui()
         self.init_connections()
 
@@ -57,7 +56,6 @@ class MainWindow(QMainWindow):
             icon_path = os.path.join(sys._MEIPASS, "gui.ico")
         else:
             icon_path = "gui.ico"
-
         self.setWindowIcon(QIcon(icon_path))
 
     def init_ui(self):
@@ -106,7 +104,6 @@ class MainWindow(QMainWindow):
         response_layout.addWidget(QLabel("响应内容："))
         response_layout.addWidget(self.response_content)
 
-        # 组装所有组件到主布局
         main_layout.addLayout(method_layout)
         main_layout.addLayout(headers_layout)
         main_layout.addWidget(self.tab_widget)
@@ -160,6 +157,7 @@ class MainWindow(QMainWindow):
         self.status_label.setText(f"状态码：{result['status_code']}")
         headers_text = "\n".join([f"{k}: {v}" for k, v in result['headers'].items()])
         self.response_headers.setText(headers_text)
+        
         content = result['text']
         try:
             import jsbeautifier
