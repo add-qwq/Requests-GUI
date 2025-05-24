@@ -16,7 +16,7 @@
   - **Request Body**: Supports raw text or JSON input.  
 - **Smart Headers**: Edit headers in a table (Key-Value pairs), auto-converted to Requests' `CaseInsensitiveDict`.  
 - **Response Visualization**: Displays status codes, formatted headers, and beautified response content (JSON/HTML auto-formatting via `jsbeautifier`).  
-- **Async Requests**: Uses PyQt's `QThread` to prevent UI freezing during network calls.  
+- **Async Requests**: Uses PySide6's `QThread` to prevent UI freezing during network calls.  
 - **Bilingual Interface**: Switch between Simplified Chinese and English directly in the UI (no separate folders required).  
 
 
@@ -187,7 +187,7 @@ This project is licensed under the [Apache License 2.0](https://github.com/add-q
   - **请求体**：支持纯文本或 JSON 输入。  
 - **智能请求头**：通过表格编辑请求头（键值对），自动转换为 Requests 的 `CaseInsensitiveDict`（键不区分大小写）。  
 - **响应可视化**：显示状态码、格式化响应头，并通过 `jsbeautifier` 自动美化 JSON/HTML 响应内容。  
-- **异步请求**：使用 PyQt 的 `QThread` 实现异步发送，避免界面卡顿。  
+- **异步请求**：使用 PySide6 的 `QThread` 实现异步发送，避免界面卡顿。  
 - **双语界面**：直接在界面中切换简体中文与英文（无需分开文件夹）。  
 
 
